@@ -15,3 +15,5 @@ let invoice = Invoice(customer: "BigCo", performances: [
 ])
 
 print(try statement(invoice: invoice, plays: plays))
+
+TestRefactoring.defaultTestSuite.run()
