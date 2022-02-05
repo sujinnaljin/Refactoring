@@ -10,10 +10,8 @@ public func statement(invoice: Invoice, plays: [String: Play]) throws -> String 
         totalAmount += try amountFor(performance: performance)
     }
     
-   
-    let volumeCredits: Double = totalVolumeCredits()
     result += "총액: $\(totalAmount/100.0)\n"
-    result += "적립 포인트: $\(volumeCredits)점\n"
+    result += "적립 포인트: $\(totalVolumeCredits())점\n"
     return result
     
     func amountFor(performance: Performance) throws -> Double {
