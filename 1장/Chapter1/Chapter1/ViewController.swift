@@ -28,17 +28,12 @@ class ViewController: UIViewController {
     }
     
     func statement(invoice: Invoice, plays: [String: Play]) throws -> String {
-        let statementData = StatementData(customer: invoice.customer,
-                                          performances: invoice.performances,
-                                          totalAmount: 0,
-                                          totalVolumeCredits: 0)
-        return try renderPlainText(data: statementData, plays: plays)
-    }
-
-    func renderPlainText(data: StatementData, plays: [String: Play]) throws -> String {
-        func amountFor(performance: Performance) throws -> Double {
+        func play(for performance: Performance) -> Play? {
+            return plays[performance.playID]
+        }
+        
+        func amount(for performance: Performance) throws -> Double {
             var result: Double = 0
-
             switch play(for: performance)?.type {
             case "tragedy":
                 result = 40000
@@ -54,14 +49,9 @@ class ViewController: UIViewController {
             default:
                 throw CustomError.unknown
             }
-
             return result
         }
-
-        func play(for performance: Performance) -> Play? {
-            return plays[performance.playID]
-        }
-
+        
         func volumeCredit(for performance: Performance) -> Double {
             var result: Double = 0
             result += max(Double(performance.audience) - 30, 0)
@@ -70,31 +60,48 @@ class ViewController: UIViewController {
             }
             return result
         }
-
-        func totalVolumeCredits() -> Double {
-            var result: Double = 0
-            for performance in data.performances {
-                result += volumeCredit(for: performance)
-            }
+        
+        func enrichPerformance(performance: Performance) throws -> Performance {
+            var result = performance
+            result.play = play(for: performance)
+            result.amount = try amount(for: performance)
+            result.volumeCredits = volumeCredit(for: performance)
             return result
         }
-
-        func totalAmount() throws -> Double {
+        
+        func totalAmount(for performances: [Performance]) throws -> Double {
             var result: Double = 0
-            for performance in data.performances {
-                result += try amountFor(performance: performance)
+            for performance in performances {
+                result += try amount(for: performance)
             }
             return result
         }
         
+        func totalVolumeCredits(for performances: [Performance]) -> Double {
+            var result: Double = 0
+            for performance in performances {
+                result += volumeCredit(for: performance)
+            }
+            return result
+        }
+        
+        let statementData = StatementData(customer: invoice.customer,
+                                          performances: invoice.performances.compactMap { try? enrichPerformance(performance: $0) },
+                                          totalAmount: try totalAmount(for: invoice.performances),
+                                          totalVolumeCredits: totalVolumeCredits(for: invoice.performances))
+        
+        return try renderPlainText(data: statementData)
+    }
+
+    func renderPlainText(data: StatementData) throws -> String {
         var result = "청구내역 (고객명 :\(data.customer))\n"
 
         for performance in data.performances {
-            result += "\(play(for: performance)?.name ?? ""): $\(try amountFor(performance: performance)/100) (\(performance.audience)석)\n"
+            result += "\(performance.play?.name ?? ""): $\((performance.amount ?? .zero)/100) (\(performance.audience)석)\n"
         }
 
-        result += "총액: $\(try totalAmount()/100.0)\n"
-        result += "적립 포인트: $\(totalVolumeCredits())점\n"
+        result += "총액: $\(data.totalAmount/100.0)\n"
+        result += "적립 포인트: $\(data.totalVolumeCredits)점\n"
         return result
     }
 }

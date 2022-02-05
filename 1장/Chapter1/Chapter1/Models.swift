@@ -10,6 +10,9 @@ import Foundation
 struct Performance {
     let playID: String
     let audience: Int
+    var play: Play?
+    var amount: Double?
+    var volumeCredits: Double?
 }
 
 struct Play {
