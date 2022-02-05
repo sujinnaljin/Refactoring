@@ -6,7 +6,7 @@ public func statement(invoice: Invoice, plays: [String: Play]) throws -> String 
     var result = "청구내역 (고객명 :\(invoice.customer))\n"
 
     for performance in invoice.performances {
-        let play = plays[performance.playID]
+        let play = play(for: performance)
         let thisAmount = try amountFor(performance: performance, play: play)
 
         volumeCredits += max(Double(performance.audience) - 30, 0)
@@ -41,5 +41,9 @@ public func statement(invoice: Invoice, plays: [String: Play]) throws -> String 
         }
         
         return result
+    }
+    
+    func play(for performance: Performance) -> Play? {
+        return plays[performance.playID]
     }
 }
