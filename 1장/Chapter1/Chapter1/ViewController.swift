@@ -28,6 +28,22 @@ class ViewController: UIViewController {
     }
     
     func statement(invoice: Invoice, plays: [String: Play]) throws -> String {
+        return try renderPlainText(data: createStatementData(invoice: invoice, plays: plays))
+    }
+
+    func renderPlainText(data: StatementData) throws -> String {
+        var result = "청구내역 (고객명 :\(data.customer))\n"
+
+        for performance in data.performances {
+            result += "\(performance.play?.name ?? ""): $\((performance.amount ?? .zero)/100) (\(performance.audience)석)\n"
+        }
+
+        result += "총액: $\(data.totalAmount/100.0)\n"
+        result += "적립 포인트: $\(data.totalVolumeCredits)점\n"
+        return result
+    }
+    
+    func createStatementData(invoice: Invoice, plays: [String: Play]) throws -> StatementData {
         func play(for performance: Performance) -> Play? {
             return plays[performance.playID]
         }
@@ -69,7 +85,6 @@ class ViewController: UIViewController {
             return result
         }
 
-        
         func totalAmount(for performances: [Performance]) throws -> Double {
             return try performances.reduce(0) {
                 return $0 + (try amount(for: $1))
@@ -84,20 +99,7 @@ class ViewController: UIViewController {
                                           performances: invoice.performances.compactMap { try? enrichPerformance(performance: $0) },
                                           totalAmount: try totalAmount(for: invoice.performances),
                                           totalVolumeCredits: totalVolumeCredits(for: invoice.performances))
-        
-        return try renderPlainText(data: statementData)
-    }
-
-    func renderPlainText(data: StatementData) throws -> String {
-        var result = "청구내역 (고객명 :\(data.customer))\n"
-
-        for performance in data.performances {
-            result += "\(performance.play?.name ?? ""): $\((performance.amount ?? .zero)/100) (\(performance.audience)석)\n"
-        }
-
-        result += "총액: $\(data.totalAmount/100.0)\n"
-        result += "적립 포인트: $\(data.totalVolumeCredits)점\n"
-        return result
+        return statementData
     }
 }
 
