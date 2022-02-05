@@ -1,6 +1,10 @@
 import Foundation
 
 public func statement(invoice: Invoice, plays: [String: Play]) throws -> String {
+    return try renderPlainText(invoice: invoice, plays: plays)
+}
+
+func renderPlainText(invoice: Invoice, plays: [String: Play]) throws -> String {
     
     var result = "청구내역 (고객명 :\(invoice.customer))\n"
 
