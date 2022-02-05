@@ -6,14 +6,13 @@ public func statement(invoice: Invoice, plays: [String: Play]) throws -> String 
     var result = "청구내역 (고객명 :\(invoice.customer))\n"
 
     for performance in invoice.performances {
-        let play = play(for: performance)
-        let thisAmount = try amountFor(performance: performance, play: play)
+        let thisAmount = try amountFor(performance: performance, play: play(for: performance))
 
         volumeCredits += max(Double(performance.audience) - 30, 0)
-        if "comedy" == play?.type {
+        if "comedy" == play(for: performance)?.type {
             volumeCredits += floor(Double(performance.audience) / 5.0)
         }
-            result += "\(play?.name ?? ""): $\(thisAmount/100) (\(performance.audience)석)\n"
+            result += "\(play(for: performance)?.name ?? ""): $\(thisAmount/100) (\(performance.audience)석)\n"
             totalAmount += thisAmount
 
     }
