@@ -6,7 +6,7 @@ public func statement(invoice: Invoice, plays: [String: Play]) throws -> String 
     var result = "청구내역 (고객명 :\(invoice.customer))\n"
 
     for performance in invoice.performances {
-        let thisAmount = try amountFor(performance: performance, play: play(for: performance))
+        let thisAmount = try amountFor(performance: performance)
 
         volumeCredits += max(Double(performance.audience) - 30, 0)
         if "comedy" == play(for: performance)?.type {
@@ -20,10 +20,10 @@ public func statement(invoice: Invoice, plays: [String: Play]) throws -> String 
     result += "적립 포인트: $\(volumeCredits)점\n"
     return result
     
-    func amountFor(performance: Performance, play: Play?) throws -> Double {
+    func amountFor(performance: Performance) throws -> Double {
         var result: Double = 0
         
-        switch play?.type {
+        switch play(for: performance)?.type {
         case "tragedy":
             result = 40000
             if performance.audience > 30 {
