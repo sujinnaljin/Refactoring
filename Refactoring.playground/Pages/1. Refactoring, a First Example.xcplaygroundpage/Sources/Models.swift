@@ -33,3 +33,17 @@ public struct Invoice {
 public enum CustomError : Error {
     case unknown
 }
+
+public struct StatementData {
+    let customer: String
+    let performances: [Performance]
+    let totalAmount: Double
+    let totalVolumeCredits: Double
+    
+    public init(customer: String, performances: [Performance], totalAmount: Double, totalVolumeCredits: Double) {
+        self.customer = customer
+        self.performances = performances
+        self.totalAmount = totalAmount
+        self.totalVolumeCredits = totalVolumeCredits
+    }
+}

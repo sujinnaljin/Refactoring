@@ -1,14 +1,18 @@
 import Foundation
 
 public func statement(invoice: Invoice, plays: [String: Play]) throws -> String {
-    return try renderPlainText(invoice: invoice, plays: plays)
+    let statementData = StatementData(customer: invoice.customer,
+                                      performances: invoice.performances,
+                                      totalAmount: 0,
+                                      totalVolumeCredits: 0)
+    return try renderPlainText(data: statementData, plays: plays)
 }
 
-func renderPlainText(invoice: Invoice, plays: [String: Play]) throws -> String {
+func renderPlainText(data: StatementData, plays: [String: Play]) throws -> String {
     
-    var result = "청구내역 (고객명 :\(invoice.customer))\n"
+    var result = "청구내역 (고객명 :\(data.customer))\n"
 
-    for performance in invoice.performances {
+    for performance in data.performances {
         result += "\(play(for: performance)?.name ?? ""): $\(try amountFor(performance: performance)/100) (\(performance.audience)석)\n"
     }
     
@@ -53,7 +57,7 @@ func renderPlainText(invoice: Invoice, plays: [String: Play]) throws -> String {
     
     func totalVolumeCredits() -> Double {
         var result: Double = 0
-        for performance in invoice.performances {
+        for performance in data.performances {
             result += volumeCredit(for: performance)
         }
         return result
@@ -61,7 +65,7 @@ func renderPlainText(invoice: Invoice, plays: [String: Play]) throws -> String {
     
     func totalAmount() throws -> Double {
         var result: Double = 0
-        for performance in invoice.performances {
+        for performance in data.performances {
             result += try amountFor(performance: performance)
         }
         return result
