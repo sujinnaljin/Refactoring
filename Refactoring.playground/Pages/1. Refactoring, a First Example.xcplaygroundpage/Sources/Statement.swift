@@ -1,16 +1,14 @@
 import Foundation
 
 public func statement(invoice: Invoice, plays: [String: Play]) throws -> String {
-    var totalAmount: Double = 0
     
     var result = "청구내역 (고객명 :\(invoice.customer))\n"
 
     for performance in invoice.performances {
         result += "\(play(for: performance)?.name ?? ""): $\(try amountFor(performance: performance)/100) (\(performance.audience)석)\n"
-        totalAmount += try amountFor(performance: performance)
     }
     
-    result += "총액: $\(totalAmount/100.0)\n"
+    result += "총액: $\(try totalAmount()/100.0)\n"
     result += "적립 포인트: $\(totalVolumeCredits())점\n"
     return result
     
@@ -53,6 +51,14 @@ public func statement(invoice: Invoice, plays: [String: Play]) throws -> String 
         var result: Double = 0
         for performance in invoice.performances {
             result += volumeCredit(for: performance)
+        }
+        return result
+    }
+    
+    func totalAmount() throws -> Double {
+        var result: Double = 0
+        for performance in invoice.performances {
+            result += try amountFor(performance: performance)
         }
         return result
     }
