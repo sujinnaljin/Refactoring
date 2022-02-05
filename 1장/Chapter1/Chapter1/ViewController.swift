@@ -68,21 +68,16 @@ class ViewController: UIViewController {
             result.volumeCredits = volumeCredit(for: performance)
             return result
         }
+
         
         func totalAmount(for performances: [Performance]) throws -> Double {
-            var result: Double = 0
-            for performance in performances {
-                result += try amount(for: performance)
+            return try performances.reduce(0) {
+                return $0 + (try amount(for: $1))
             }
-            return result
         }
         
         func totalVolumeCredits(for performances: [Performance]) -> Double {
-            var result: Double = 0
-            for performance in performances {
-                result += volumeCredit(for: performance)
-            }
-            return result
+            return performances.reduce(0) { $0 + volumeCredit(for: $1) }
         }
         
         let statementData = StatementData(customer: invoice.customer,
