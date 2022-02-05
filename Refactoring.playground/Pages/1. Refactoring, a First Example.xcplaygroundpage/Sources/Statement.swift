@@ -5,15 +5,15 @@ public func statement(invoice: Invoice, plays: [String: Play]) throws -> String 
     var volumeCredits: Double = 0
     var result = "청구내역 (고객명 :\(invoice.customer))\n"
 
-    for perf in invoice.performances {
-        let play = plays[perf.playID]
-        let thisAmount = try amountFor(perf: perf, play: play)
+    for performance in invoice.performances {
+        let play = plays[performance.playID]
+        let thisAmount = try amountFor(performance: performance, play: play)
 
-        volumeCredits += max(Double(perf.audience) - 30, 0)
+        volumeCredits += max(Double(performance.audience) - 30, 0)
         if "comedy" == play?.type {
-            volumeCredits += floor(Double(perf.audience) / 5.0)
+            volumeCredits += floor(Double(performance.audience) / 5.0)
         }
-            result += "\(play?.name ?? ""): $\(thisAmount/100) (\(perf.audience)석)\n"
+            result += "\(play?.name ?? ""): $\(thisAmount/100) (\(performance.audience)석)\n"
             totalAmount += thisAmount
 
     }
@@ -22,24 +22,24 @@ public func statement(invoice: Invoice, plays: [String: Play]) throws -> String 
     return result
     
     func amountFor(performance: Performance, play: Play?) throws -> Double {
-        var thisAmount: Double = 0
+        var result: Double = 0
         
         switch play?.type {
         case "tragedy":
-            thisAmount = 40000
+            result = 40000
             if performance.audience > 30 {
-                thisAmount += Double(1000 * (performance.audience - 30))
+                result += Double(1000 * (performance.audience - 30))
             }
         case "comedy":
-            thisAmount = 30000
+            result = 30000
             if performance.audience > 20 {
-                thisAmount += Double(10000 + 500 * (performance.audience - 20))
+                result += Double(10000 + 500 * (performance.audience - 20))
             }
-            thisAmount += Double(300 * performance.audience)
+            result += Double(300 * performance.audience)
         default:
             throw CustomError.unknown
         }
         
-        return thisAmount
+        return result
     }
 }
