@@ -1,4 +1,9 @@
 # Refactoring
+매주 수요일 [sovovy](https://github.com/sovovy)와 함께하는 리팩토링 2판 스터디! 
+
+![image](https://user-images.githubusercontent.com/20410193/152670400-d659eb02-e631-43f3-9705-c89b24c6b87b.png)
+
+이번에는 과연,, 다 읽을 수 있을까!!
 
 ## 1장
 - 리팩토링 이전에 선행되어야 할 건 **테스트 코드**!  이게 있어야 코드를 수정해도 문제가 없나 파악할 수 있음
