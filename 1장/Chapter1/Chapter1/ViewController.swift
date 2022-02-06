@@ -48,57 +48,29 @@ class ViewController: UIViewController {
             return plays[performance.playID]
         }
         
-        func amount(for performance: Performance) throws -> Double {
-            var result: Double = 0
-            switch play(for: performance)?.type {
-            case "tragedy":
-                result = 40000
-                if performance.audience > 30 {
-                    result += Double(1000 * (performance.audience - 30))
-                }
-            case "comedy":
-                result = 30000
-                if performance.audience > 20 {
-                    result += Double(10000 + 500 * (performance.audience - 20))
-                }
-                result += Double(300 * performance.audience)
-            default:
-                throw CustomError.unknown
-            }
-            return result
-        }
-        
-        func volumeCredit(for performance: Performance) -> Double {
-            var result: Double = 0
-            result += max(Double(performance.audience) - 30, 0)
-            if "comedy" == play(for: performance)?.type {
-                result += floor(Double(performance.audience) / 5.0)
-            }
-            return result
-        }
-        
         func enrichPerformance(performance: Performance) throws -> Performance {
+            let calculator = PerformanceCalculator(performance: performance,
+                                                   play: play(for: performance))
             var result = performance
-            result.play = play(for: performance)
-            result.amount = try amount(for: performance)
-            result.volumeCredits = volumeCredit(for: performance)
+            result.play = calculator.play
+            result.amount = try calculator.amount()
+            result.volumeCredits = calculator.volumeCredits()
             return result
         }
 
         func totalAmount(for performances: [Performance]) throws -> Double {
-            return try performances.reduce(0) {
-                return $0 + (try amount(for: $1))
-            }
+            return performances.reduce(0) { $0 + ($1.amount ?? .zero) }
         }
         
         func totalVolumeCredits(for performances: [Performance]) -> Double {
-            return performances.reduce(0) { $0 + volumeCredit(for: $1) }
+            return performances.reduce(0) { $0 + ($1.volumeCredits ?? .zero) }
         }
         
+        let enrichedPerformances = invoice.performances.compactMap { try? enrichPerformance(performance: $0) }
         let statementData = StatementData(customer: invoice.customer,
-                                          performances: invoice.performances.compactMap { try? enrichPerformance(performance: $0) },
-                                          totalAmount: try totalAmount(for: invoice.performances),
-                                          totalVolumeCredits: totalVolumeCredits(for: invoice.performances))
+                                          performances: enrichedPerformances,
+                                          totalAmount: try totalAmount(for: enrichedPerformances),
+                                          totalVolumeCredits: totalVolumeCredits(for: enrichedPerformances))
         return statementData
     }
 }

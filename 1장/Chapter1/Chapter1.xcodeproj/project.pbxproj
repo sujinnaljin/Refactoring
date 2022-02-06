@@ -19,6 +19,8 @@
 		3B0ABBB727AF0A7800E912F3 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B0ABBB627AF0A7800E912F3 /* Models.swift */; };
 		3B0ABBB827AF0B3200E912F3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B0ABB8A27AF0A3D00E912F3 /* ViewController.swift */; };
 		3B0ABBB927AF0FD100E912F3 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B0ABBB627AF0A7800E912F3 /* Models.swift */; };
+		3B0ABBBB27AF967300E912F3 /* PerformanceCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B0ABBBA27AF967300E912F3 /* PerformanceCalculator.swift */; };
+		3B0ABBBC27AF983300E912F3 /* PerformanceCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B0ABBBA27AF967300E912F3 /* PerformanceCalculator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +55,7 @@
 		3B0ABBA727AF0A4100E912F3 /* Chapter1UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chapter1UITests.swift; sourceTree = "<group>"; };
 		3B0ABBA927AF0A4100E912F3 /* Chapter1UITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chapter1UITestsLaunchTests.swift; sourceTree = "<group>"; };
 		3B0ABBB627AF0A7800E912F3 /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
+		3B0ABBBA27AF967300E912F3 /* PerformanceCalculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerformanceCalculator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +109,7 @@
 				3B0ABB8627AF0A3D00E912F3 /* AppDelegate.swift */,
 				3B0ABB8827AF0A3D00E912F3 /* SceneDelegate.swift */,
 				3B0ABBB627AF0A7800E912F3 /* Models.swift */,
+				3B0ABBBA27AF967300E912F3 /* PerformanceCalculator.swift */,
 				3B0ABB8A27AF0A3D00E912F3 /* ViewController.swift */,
 				3B0ABB8C27AF0A3D00E912F3 /* Main.storyboard */,
 				3B0ABB8F27AF0A4100E912F3 /* Assets.xcassets */,
@@ -266,6 +270,7 @@
 				3B0ABB8B27AF0A3D00E912F3 /* ViewController.swift in Sources */,
 				3B0ABB8727AF0A3D00E912F3 /* AppDelegate.swift in Sources */,
 				3B0ABB8927AF0A3D00E912F3 /* SceneDelegate.swift in Sources */,
+				3B0ABBBB27AF967300E912F3 /* PerformanceCalculator.swift in Sources */,
 				3B0ABBB727AF0A7800E912F3 /* Models.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -276,6 +281,7 @@
 			files = (
 				3B0ABBB927AF0FD100E912F3 /* Models.swift in Sources */,
 				3B0ABBB827AF0B3200E912F3 /* ViewController.swift in Sources */,
+				3B0ABBBC27AF983300E912F3 /* PerformanceCalculator.swift in Sources */,
 				3B0ABB9E27AF0A4100E912F3 /* Chapter1Tests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
