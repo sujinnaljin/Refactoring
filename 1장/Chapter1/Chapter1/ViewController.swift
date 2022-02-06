@@ -49,15 +49,15 @@ class ViewController: UIViewController {
         }
         
         func enrichPerformance(performance: Performance) throws -> Performance {
-            let calculator = PerformanceCalculator(performance: performance,
-                                                   play: play(for: performance))
+            let calculator = try createPerformanceCalculator(performance: performance,
+                                                             play: play(for: performance))
             var result = performance
             result.play = calculator.play
-            result.amount = try calculator.amount()
+            result.amount = calculator.amount()
             result.volumeCredits = calculator.volumeCredits()
             return result
         }
-
+        
         func totalAmount(for performances: [Performance]) throws -> Double {
             return performances.reduce(0) { $0 + ($1.amount ?? .zero) }
         }
@@ -72,6 +72,17 @@ class ViewController: UIViewController {
                                           totalAmount: try totalAmount(for: enrichedPerformances),
                                           totalVolumeCredits: totalVolumeCredits(for: enrichedPerformances))
         return statementData
+    }
+    
+    func createPerformanceCalculator(performance: Performance, play: Play?) throws -> PerformanceCalculator {
+        switch play?.type {
+        case "tragedy":
+            return TragedyCalculator(performance: performance, play: play)
+        case "comedy":
+            return ComedyCalculator(performance: performance, play: play)
+        default:
+            throw CustomError.unknown
+        }
     }
 }
 
