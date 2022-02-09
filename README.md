@@ -42,17 +42,25 @@
 - 저자가 똑같은 동작의 for 문이라도 의미가 분리된다면 loop 를 분리하라고 했는데, 사실 이것도 읭? 스럽긴 함. 실제로 컴파일러에서 이걸 최적화 해서 묶어주나? 테스트해보면 좋을듯
 ```swift
 //전
-(1...100).forEach {
-  myFuncA()
-  myFuncB()
+let range = (1...10)
+
+var totalAmount = 0
+var volumeCredits = 0
+range.forEach { amount in
+    totalAmount += amount
+    volumeCredits += amount
 }
 
 //후
-(1...100).forEach {
-  myFuncA()
+let range = (1...10)
+
+var totalAmount = 0
+range.forEach { amount in
+    totalAmount += amount
 }
 
-(1...100).forEach {
-  myFuncB()
+var volumeCredits = 0
+range.forEach { amount in
+    volumeCredits += amount
 }
 ```
