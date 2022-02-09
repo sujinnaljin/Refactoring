@@ -1,5 +1,5 @@
 # Refactoring
-매주 수요일 [sovovy](https://github.com/sovovy)와 함께하는 리팩토링 2판 스터디! 
+매주 수요일 밤 아홉시! [왜웅](https://github.com/sovovy)과 함께하는 리팩토링 2판 스터디! 
 
 ![image](https://user-images.githubusercontent.com/20410193/152670400-d659eb02-e631-43f3-9705-c89b24c6b87b.png)
 
