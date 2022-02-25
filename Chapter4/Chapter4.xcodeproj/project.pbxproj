@@ -17,6 +17,7 @@
 		3B1490F727C9386E000EB9DB /* Chapter4UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B1490F627C9386E000EB9DB /* Chapter4UITests.swift */; };
 		3B1490F927C9386E000EB9DB /* Chapter4UITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B1490F827C9386E000EB9DB /* Chapter4UITestsLaunchTests.swift */; };
 		3B14910827C945E4000EB9DB /* mock.json in Resources */ = {isa = PBXBuildFile; fileRef = 3B14910727C945E4000EB9DB /* mock.json */; };
+		3B14910A27C94D58000EB9DB /* MockParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B14910927C94D58000EB9DB /* MockParser.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,7 @@
 		3B1490F627C9386E000EB9DB /* Chapter4UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chapter4UITests.swift; sourceTree = "<group>"; };
 		3B1490F827C9386E000EB9DB /* Chapter4UITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chapter4UITestsLaunchTests.swift; sourceTree = "<group>"; };
 		3B14910727C945E4000EB9DB /* mock.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = mock.json; sourceTree = "<group>"; };
+		3B14910927C94D58000EB9DB /* MockParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockParser.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +105,7 @@
 			children = (
 				3B1490D527C9386C000EB9DB /* AppDelegate.swift */,
 				3B1490D727C9386C000EB9DB /* SceneDelegate.swift */,
+				3B14910927C94D58000EB9DB /* MockParser.swift */,
 				3B1490D927C9386C000EB9DB /* ViewController.swift */,
 				3B1490DB27C9386C000EB9DB /* Main.storyboard */,
 				3B1490DE27C9386E000EB9DB /* Assets.xcassets */,
@@ -264,6 +267,7 @@
 			files = (
 				3B1490DA27C9386C000EB9DB /* ViewController.swift in Sources */,
 				3B1490D627C9386C000EB9DB /* AppDelegate.swift in Sources */,
+				3B14910A27C94D58000EB9DB /* MockParser.swift in Sources */,
 				3B1490D827C9386C000EB9DB /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
