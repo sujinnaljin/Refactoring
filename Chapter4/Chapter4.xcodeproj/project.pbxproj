@@ -16,6 +16,7 @@
 		3B1490ED27C9386E000EB9DB /* Chapter4Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B1490EC27C9386E000EB9DB /* Chapter4Tests.swift */; };
 		3B1490F727C9386E000EB9DB /* Chapter4UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B1490F627C9386E000EB9DB /* Chapter4UITests.swift */; };
 		3B1490F927C9386E000EB9DB /* Chapter4UITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B1490F827C9386E000EB9DB /* Chapter4UITestsLaunchTests.swift */; };
+		3B14910827C945E4000EB9DB /* mock.json in Resources */ = {isa = PBXBuildFile; fileRef = 3B14910727C945E4000EB9DB /* mock.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		3B1490F227C9386E000EB9DB /* Chapter4UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Chapter4UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B1490F627C9386E000EB9DB /* Chapter4UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chapter4UITests.swift; sourceTree = "<group>"; };
 		3B1490F827C9386E000EB9DB /* Chapter4UITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chapter4UITestsLaunchTests.swift; sourceTree = "<group>"; };
+		3B14910727C945E4000EB9DB /* mock.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = mock.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +108,7 @@
 				3B1490DE27C9386E000EB9DB /* Assets.xcassets */,
 				3B1490E027C9386E000EB9DB /* LaunchScreen.storyboard */,
 				3B1490E327C9386E000EB9DB /* Info.plist */,
+				3B14910727C945E4000EB9DB /* mock.json */,
 			);
 			path = Chapter4;
 			sourceTree = "<group>";
@@ -234,6 +237,7 @@
 				3B1490E227C9386E000EB9DB /* LaunchScreen.storyboard in Resources */,
 				3B1490DF27C9386E000EB9DB /* Assets.xcassets in Resources */,
 				3B1490DD27C9386C000EB9DB /* Main.storyboard in Resources */,
+				3B14910827C945E4000EB9DB /* mock.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
