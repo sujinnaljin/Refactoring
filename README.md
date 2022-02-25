@@ -1,5 +1,5 @@
 # Refactoring
-매주 수요일 밤 아홉시! [왜웅](https://github.com/sovovy)과 함께하는 리팩토링 2판 스터디! 
+매주 금요일 밤 아홉시! [왜웅](https://github.com/sovovy)과 함께하는 리팩토링 2판 스터디! 
 
 ![image](https://user-images.githubusercontent.com/20410193/152670400-d659eb02-e631-43f3-9705-c89b24c6b87b.png)
 
@@ -29,8 +29,8 @@
 - [1장. 리팩터링: 첫 번째 예시](https://github.com/sujinnaljin/Refactoring/blob/main/Review/Chapter1.md)
 - [2장. 리팩터링 원칙](https://github.com/sujinnaljin/Refactoring/blob/main/Review/Chapter2.md)
 - [3장. 코드에서 나는 악취](https://github.com/sujinnaljin/Refactoring/blob/main/Review/Chapter3.md)
-- [4장. 테스트 구축하기]
-- [5장. 리팩터링 카탈로그 보는 법]
+- [4장. 테스트 구축하기](https://github.com/sujinnaljin/Refactoring/blob/main/Review/Chapter4.md)
+- [5장. 리팩터링 카탈로그 보는 법](https://github.com/sujinnaljin/Refactoring/blob/main/Review/Chapter5.md)
 
 
 
