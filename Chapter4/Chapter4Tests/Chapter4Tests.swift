@@ -5,26 +5,20 @@
 //  Created by 강수진 on 2022/02/26.
 //
 
-import XCTest
 @testable import Chapter4
+import Quick
+import Nimble
 
-class Chapter4Tests: XCTestCase {
-
-    override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-    }
-
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-    }
-
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-    }
+class Chapter4Tests: QuickSpec {
     
-    func testProvince_Shortfall() {
-        let asia = MockParser.load(type: Province.self, fileName: "mock")
-        XCTAssertEqual(asia?.shortfall, 5)
+    override func spec() {
+        // 어떤 component를 test 하는지 설명 (명사)
+        describe("province") {
+            // test에서 기대되는 결과. 위에서 명사로 작성한 테스트 대상의 행동을 작성
+            it("shortfall") {
+                let asia = MockParser.load(type: Province.self, fileName: "mock")
+                expect(asia?.shortfall).to(equal(5))
+            }
+        }
     }
 }
