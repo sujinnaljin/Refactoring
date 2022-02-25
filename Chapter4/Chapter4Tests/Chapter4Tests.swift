@@ -12,16 +12,20 @@ import Nimble
 class Chapter4Tests: QuickSpec {
     
     override func spec() {
+        
         // 어떤 component를 test 하는지 설명 (명사)
         describe("province") {
+            var asia: Province?
+            
+            beforeEach {
+                asia = MockParser.load(type: Province.self, fileName: "mock")
+            }
             // test에서 기대되는 결과. 위에서 명사로 작성한 테스트 대상의 행동을 작성
             it("shortfall") {
-                let asia = MockParser.load(type: Province.self, fileName: "mock")
                 expect(asia?.shortfall).to(equal(5))
             }
             
             it("profit") {
-                let asia = MockParser.load(type: Province.self, fileName: "mock")
                 expect(asia?.profit).to(equal(230))
             }
         }
