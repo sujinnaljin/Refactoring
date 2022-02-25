@@ -35,5 +35,21 @@ class Chapter4Tests: QuickSpec {
                 expect(asia?.profit).to(equal(292))
             }
         }
+        
+        describe("no producers") {
+            var noProducers: Province?
+            
+            beforeEach {
+                noProducers = MockParser.load(type: Province.self, fileName: "NoProducers")
+            }
+            // test에서 기대되는 결과. 위에서 명사로 작성한 테스트 대상의 행동을 작성
+            it("shortfall") {
+                expect(noProducers?.shortfall).to(equal(30))
+            }
+            
+            it("profit") {
+                expect(noProducers?.profit).to(equal(0))
+            }
+        }
     }
 }
