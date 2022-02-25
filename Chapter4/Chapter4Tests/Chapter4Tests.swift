@@ -19,6 +19,11 @@ class Chapter4Tests: QuickSpec {
                 let asia = MockParser.load(type: Province.self, fileName: "mock")
                 expect(asia?.shortfall).to(equal(5))
             }
+            
+            it("profit") {
+                let asia = MockParser.load(type: Province.self, fileName: "mock")
+                expect(asia?.profit).to(equal(230))
+            }
         }
     }
 }
