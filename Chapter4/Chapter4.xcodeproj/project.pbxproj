@@ -20,6 +20,7 @@
 		3B14910A27C94D58000EB9DB /* MockParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B14910927C94D58000EB9DB /* MockParser.swift */; };
 		3B14910C27C94DB1000EB9DB /* Province.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B14910B27C94DB1000EB9DB /* Province.swift */; };
 		3B14910E27C94DBA000EB9DB /* Producer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B14910D27C94DBA000EB9DB /* Producer.swift */; };
+		3B14911927C962B7000EB9DB /* NoProducers.json in Resources */ = {isa = PBXBuildFile; fileRef = 3B14911827C962B7000EB9DB /* NoProducers.json */; };
 		55C3E9C60A8ACEE7B818445E /* Pods_Chapter4_Chapter4UITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F51A61349027AE489378542F /* Pods_Chapter4_Chapter4UITests.framework */; };
 		5C8F67459BF557CB17E982F8 /* Pods_Chapter4.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D192991DF650B54BF1D71078 /* Pods_Chapter4.framework */; };
 		8281D22A1C625770CE6EF7BB /* Pods_Chapter4Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88A2A063392CFDDDDA2AF2A1 /* Pods_Chapter4Tests.framework */; };
@@ -63,6 +64,7 @@
 		3B14910927C94D58000EB9DB /* MockParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockParser.swift; sourceTree = "<group>"; };
 		3B14910B27C94DB1000EB9DB /* Province.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Province.swift; sourceTree = "<group>"; };
 		3B14910D27C94DBA000EB9DB /* Producer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Producer.swift; sourceTree = "<group>"; };
+		3B14911827C962B7000EB9DB /* NoProducers.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = NoProducers.json; sourceTree = "<group>"; };
 		88A2A063392CFDDDDA2AF2A1 /* Pods_Chapter4Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Chapter4Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D192991DF650B54BF1D71078 /* Pods_Chapter4.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Chapter4.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DDA7C01D470F51302AC94557 /* Pods-Chapter4-Chapter4UITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Chapter4-Chapter4UITests.release.xcconfig"; path = "Target Support Files/Pods-Chapter4-Chapter4UITests/Pods-Chapter4-Chapter4UITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -135,6 +137,7 @@
 				3B1490E027C9386E000EB9DB /* LaunchScreen.storyboard */,
 				3B1490E327C9386E000EB9DB /* Info.plist */,
 				3B14910727C945E4000EB9DB /* mock.json */,
+				3B14911827C962B7000EB9DB /* NoProducers.json */,
 			);
 			path = Chapter4;
 			sourceTree = "<group>";
@@ -166,7 +169,6 @@
 				0B3F4F5428891F5F69E6F0F9 /* Pods-Chapter4Tests.debug.xcconfig */,
 				F9C48665EC74C7653C0E07D2 /* Pods-Chapter4Tests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -291,6 +293,7 @@
 				3B1490E227C9386E000EB9DB /* LaunchScreen.storyboard in Resources */,
 				3B1490DF27C9386E000EB9DB /* Assets.xcassets in Resources */,
 				3B1490DD27C9386C000EB9DB /* Main.storyboard in Resources */,
+				3B14911927C962B7000EB9DB /* NoProducers.json in Resources */,
 				3B14910827C945E4000EB9DB /* mock.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
