@@ -28,6 +28,12 @@ class Chapter4Tests: QuickSpec {
             it("profit") {
                 expect(asia?.profit).to(equal(230))
             }
+            
+            it("change production") {
+                asia?.producers.first?.setProduction(amountStr: "20")
+                expect(asia?.shortfall).to(equal(-6))
+                expect(asia?.profit).to(equal(292))
+            }
         }
     }
 }
