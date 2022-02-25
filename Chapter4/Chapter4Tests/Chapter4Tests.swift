@@ -34,6 +34,18 @@ class Chapter4Tests: QuickSpec {
                 expect(asia?.shortfall).to(equal(-6))
                 expect(asia?.profit).to(equal(292))
             }
+            
+            it("zero demand") {
+                asia?.demand = 0
+                expect(asia?.shortfall).to(equal(-25))
+                expect(asia?.profit).to(equal(0))
+            }
+            
+            it("negative demand") {
+                asia?.demand = -1
+                expect(asia?.shortfall).to(equal(-26))
+                expect(asia?.profit).to(equal(-10))
+            }
         }
         
         describe("no producers") {
