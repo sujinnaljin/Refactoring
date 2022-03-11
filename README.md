@@ -32,6 +32,7 @@
 - [3장. 코드에서 나는 악취](https://github.com/sujinnaljin/Refactoring/blob/main/Review/Chapter3.md)
 - [4장. 테스트 구축하기](https://github.com/sujinnaljin/Refactoring/blob/main/Review/Chapter4.md)
 - [5장. 리팩터링 카탈로그 보는 법](https://github.com/sujinnaljin/Refactoring/blob/main/Review/Chapter5.md)
+- [6장. 기본적인 리팩터링](https://github.com/sujinnaljin/Refactoring/blob/main/Review/Chapter6.md)
 
 
 
