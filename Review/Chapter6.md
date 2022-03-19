@@ -33,6 +33,71 @@
 - 함수는 데이터보다 다루기 수월하기 때문에, 접근할 수 있는 범위가 넓은 데이터는 함수로 캡슐화 하는 것이 좋음. 
 - 저자는 유효 범위가 함수 하나보다 넓은 가변 데이터는 모두 캡슐화 한다고 함
 
+## 6-7. 변수 이름 바꾸기
+
+## 6-8. 매개변수 객체 만들기
+
+- 다수의 함수에서 **동일한 데이터 항목 여러개가 인자로 전달**된다면, 이들을 **하나의 데이터 구조**로 묶음
+- 이렇게 하면 데이터 사이의 관계가 명확해지고, 함수의 **매개 변수 수가 줄어**듦.
+- 모든 함수가 **같은 데이터 구조**를 사용하기 때문에, **원소 참조**시 항상 **같은 이름**을 사용하고 일관성이 높아짐
+
+## 6-9. 여러 함수를 클래스로 묶기
+
+- 흔히 함수 호출시 **인수로 전달되는 동일한 데이터**를 중심으로 긴밀하게 엮여 작동하는 **함수 무리**에 대해 **클래스 하나**로 묶음
+- 클래스로 묶으면 함수에 전달되는 인수를 줄여 **함수 호출을 간결**하게 만들 수 있음
+
+## 6-10. 여러 함수를 변환 함수로 묶기
+
+- 입력 받은 데이터로 여러 정보들을 도출할 때, 이 값들을 사용하기 위한 도출 로직이 여러 곳에서 반복 될 수 있음. 이를 위해 원본 데이터를 입력받아 필요한 정보를 모두 도출한뒤, 각각을 출력 데이터의 필드에 넣어 반환하는 변환 함수를 만들어 사용할 수 있음.
+
+  ```javascript
+  function base(aReading) {...}
+  function taxableCharge(aReading) {...}
+  
+  --->
+    
+  function enrichReading(argReading) {
+    const aReading = _.cloneDeep(argReading)
+    aReading.baseCharge = base(aReading)
+    aReading.taxableCharge = taxableCharge(aReading)
+    return aReading
+  }
+  ```
+
+- 여러 함수를 한데 묶는 이유는 도출 로직이 중복되는 것을 막기 위함. 이 로직을 함수로 추출하는 것만으로도 같은 효과를 볼 수 있지만, 데이터 구조와 이를 사용하는 함수가 근처에 있지 않으면 함수를 발견하기 어려울때가 많음. 변환 함수로 묶으면 이런 함수들을 쉽게 찾아 쓸 수 있음
+
+## 6-11. 단계 쪼개기
+
+- 서로 다른 **두 대상을 한꺼번에 처리**하는 코드를 발견하면 각각을 **연이은 두 단계로** 쪼갬
+
+- **두번째 단계**에 해당하는 코드를 **독립 함수**로 추출하고, **인수**로는 **중간 데이터 구조**를 만들어서 넘김
+
+- 저자는 중간 데이터 구조에는 첫번째 단계에서 계산된 값 뿐만 아니라, 첫번째 단계에서 사용되었던 값 또한 중간 데이터 구조로 옮기는 것을 선호한다고 함
+
+  아래 단계 1 함수에서 `quantity` 는 내부에서 계산을 통해 도출된 값이 아니라 그저 인수를 넘겨 받아 사용했을 뿐임. 그래서 단계 2 함수 호출할때 그냥 `quantity` 를 바로 넘겨도 되지만, 저자는 중간 데이터 구조에 넣어서 넘기는 것을 선호
+
+  ```javascript
+  function priceOrder(product, quantity, shippingMethod) {
+    const priceData = calculatePriceData(product, quantity);
+    const price = applyShipping(priceData, shippingMethod);
+    return price;
+  }
+  
+  // 단계 1
+  function calculatePriceData(product, quantity) {
+    const basePrice = product.basePrice * quantity;
+    const discount = ~~;
+    return {basePrice: basePrice, quantity: quantity, discount: discount}
+  }
+  
+  // 단계 2
+  function applyShipping(priceData, shippingMethod) {
+    
+  }
+  ```
+
+
+
 ## 논의해볼 사항
 
 - "6-1. 함수 추출하기" - 중첩 함수를 지원하는 언어라면 중첩 함수 사용하라고 되어있음 (160p). 
