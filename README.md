@@ -25,7 +25,9 @@
 | 4회차 (3/4)  | 4장 - 테스트 작성법 & 5장 - 카탈로그 사용법                  |
 | 5회차 (3/12) | 6.1장 ~ 6.6 장                                               |
 | 6회차 (3/19) | 6.7장 ~ 6.11 장                                              |
-| 7회차 (3/25) | 7장                                                          |
+| 7회차 (3/30) | 7장                                                          |
+| 8회차 (4/8)  | 8장                                                          |
+| 9회차 (4/15) | 9장                                                          |
 
 ## Review
 - [1장. 리팩터링: 첫 번째 예시](https://github.com/sujinnaljin/Refactoring/blob/main/Review/Chapter1.md)
@@ -34,6 +36,9 @@
 - [4장. 테스트 구축하기](https://github.com/sujinnaljin/Refactoring/blob/main/Review/Chapter4.md)
 - [5장. 리팩터링 카탈로그 보는 법](https://github.com/sujinnaljin/Refactoring/blob/main/Review/Chapter5.md)
 - [6장. 기본적인 리팩터링](https://github.com/sujinnaljin/Refactoring/blob/main/Review/Chapter6.md)
+- [7장. 캡슐화](https://github.com/sujinnaljin/Refactoring/blob/main/Review/Chapter7.md)
+- [8장. 기능 이동](https://github.com/sujinnaljin/Refactoring/blob/main/Review/Chapter8.md)
+- [9장. 데이터 조직화](https://github.com/sujinnaljin/Refactoring/blob/main/Review/Chapter9.md)
 
 
 
