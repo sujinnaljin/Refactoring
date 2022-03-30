@@ -48,7 +48,7 @@ class Organization {
 const basePrice = this._quantity * this._itemPrice;
 
 // 후
-get bssePrice() { this._quantity * this._itemPrice; }
+get basePrice() { this._quantity * this._itemPrice; }
 ```
 
 - 긴 함수의 한 부분을 **별도 함수로 추출**하고자 할 때 먼저 **변수들을 각각의 함수**로 만들면, **추출한 함수에 변수를 따로 전달할 필요가 없어지**기 때문에 일이 수월해진다고 함 (🤔 뭔말임? 222)
@@ -87,7 +87,7 @@ class Person {
 
 ## 7-8. 중개자 제거하기
 
-- **반대** 리팩터링 : **중개자 제거**하기 (7-7)
+- **반대** 리팩터링 : **위임 숨기기**하기 (7-7)
 - 7-7 의 위임 숨기기 기법을 사용하면, 사용하는 쪽에서 **위임 객체의 또 다른 기능**을 사용하고 싶을때마다 기능을 제공하는 쪽에 **위임 메서드를 추가**해야 함. 기능을 제공하는 쪽에서는 단순한 위임 메서드들이 점점 많아지고, 그저 **중개자 역할로 전락**할 수 있음. 이럴때는 차라리 사용하는 쪽에서 **위임 객체를 직접 호출**하는게 나을 수 있음
 - 위임 숨기기(7-7)와 중개자 제거하기를 **적당히 섞어도** 됨. 둘 중 하나를 반드시 해야할 필요 없이 **상황에 맞게 처리**하면 되고, 합리적인 사람이라면 어떻게 해야 가장 효과적인지 판단할 수 있을 것.
 
@@ -111,7 +111,7 @@ class Person {
   const basePrice = this._quantity * this._itemPrice;
   
   // 후
-  get bssePrice() { this._quantity * this._itemPrice; }
+  get basePrice() { this._quantity * this._itemPrice; }
   ```
 
   또한 긴 함수의 한 부분을 별도 함수로 추출하고자 할 때 먼저 변수들을 각각의 함수로 만들면, 추출한 함수에 변수를 따로 전달할 필요가 없어지기 때문에 일이 수월해진다는 말도 무슨 뜻인지 모르겠음
