@@ -104,6 +104,31 @@ class Person {
 
 - "7-1. 레코드 캡슐화 하기"에서 단순한 레코드는 계산해서 얻을 수 있는 값과, 그렇지 않은 값을 명확히 구분해 저장해야하는 점이 번거롭다고(?) 함. 이 때문에 가변 데이터를 저장하는 용도로는 레코드 보다 객체를 선호한다고 하는데,,, 사실 무슨 의미인지 모르겠음. 대체 어떤 배경에서 등장한거란 말임?
 
+  => 
+
+  ```javascript
+  //전
+  organization = {name: "naljin", country: "KR"};
+  ```
+
+  이렇게 단순 레코드로 정의해두면 `organization.name` 이 실제로 있는지 없는지 런타임에서야 확인 할 수 있음. (swift dictionary 랑 비슷하게)
+
+  이런게 불편하니까, 그럴바엔 컴파일 타임에 알 수 있게 클래스로 명확히 정의해놔라!
+
+  ```javascript
+  class Organization {
+    constructor(data) {
+      this._name = data.name;
+      this._country = data.country;
+    }
+      
+    get name() {return this._name;}
+    set name(arg) {this._name = arg;}
+    get country() {return this._country}
+    set country(arg) {this._country = arg;}
+  }
+  ```
+
 - "7-4. 임시 변수를 질의 함수로 바꾸기"에서 이 정도를 왜 함수로 바꿔야하는지 잘 모르겠음
 
   ```javascript
@@ -116,6 +141,43 @@ class Person {
 
   또한 긴 함수의 한 부분을 별도 함수로 추출하고자 할 때 먼저 변수들을 각각의 함수로 만들면, 추출한 함수에 변수를 따로 전달할 필요가 없어지기 때문에 일이 수월해진다는 말도 무슨 뜻인지 모르겠음
 
+  => 
+
+  이렇게 일일히 쓰지 말고
+
+  ```javascript
+  function a() {
+    var data = this._someData
+    print("A: {data}")
+    b(data)
+  }
+  
+  function b(data) {
+    print("B: {data}")
+  }
+  ```
+
+  이렇게 해라????????????????????????????????????
+
+  ```javascript
+  function data() {
+    this._someData
+  }
+  function a() {
+    print("A: {data()}")
+    b()
+  }
+  
+  function b() {
+    print("B: {data()}")
+  }
+  ```
+
+  모르겠네,,,,,,,,,,,,,,,,애옹이는,,,,,이해한거같은디,,,,,,,,,,,난 잘 아직도 모르겠음 ^^ ; ;;;;;;;;;;;;;;;;;;;;; 
+
+  표현식을 여기저기서 쓰지 말고 그냥 함수로 한번에 빼내서 그걸 써라,,! 요런 미미한 리팩토링 늑김,,?
+
 - "7-6. 클래스 인라인하기" 에서 클래스에 **남은 역할이 거의 없을때,** 해당 클래스를 가장 많이 사용하는 클래스로 **흡수**시키라는데, "7-3. 기본형을 객체로 바꾸기"에서는 단순히 **출력 이상의 기능**이 필요해지는 순간 그 데이터를 표현하는 **전용 클래스** 정의하라고??? 정확히 반대되는 말 아님? 어쩌라는거임?
 
+  => 유도리 있게 와리가리~?
   
