@@ -26,7 +26,7 @@ get discountedTotal() { return this._baseTotal - this._discount;}
 set discount(aNumber) { this._discount = aNumber; }
 ```
 
-- 한 쪽 코드에서 수정한 값이 연쇄효과를 일으켜 다른 쪽 코드에 원ㅇ인을 찾기 어려운 문제를 야기하기도 함 
+- 한 쪽 코드에서 수정한 값이 연쇄효과를 일으켜 다른 쪽 코드에 원인을 찾기 어려운 문제를 야기하기도 함 
 - 따라서 가변 데이터의 유효 범위를 가능한 좁혀야함
 
 ## 9-4. 참조를 값으로 바꾸기
