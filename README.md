@@ -27,7 +27,7 @@
 | 6회차 (3/19) | 6.7장 ~ 6.11 장                                              |
 | 7회차 (3/30) | 7장                                                          |
 | 8회차 (4/8)  | 8장                                                          |
-| 9회차 (4/15) | 9장                                                          |
+| 9회차 (4/16) | 9장                                                          |
 
 ## Review
 - [1장. 리팩터링: 첫 번째 예시](https://github.com/sujinnaljin/Refactoring/blob/main/Review/Chapter1.md)
