@@ -17,19 +17,23 @@
 
 ## 일정
 
-| 회차         | 내용                                                         |
-| ------------ | ------------------------------------------------------------ |
-| 1회차 (2/9)  | 1장 - 작은 프로그램 리팩토링 과정 <- 리팩토링이 뭔지 모르면 & 리팩토링을 하는 이유 |
-| 2회차 (2/17) | 2장 - 리팩토링 원칙, 당위성 + 문제점 <- 리팩토링을 하는 이유 |
-| 3회차 (2/25) | 3장 - 쓰레기 코드 찾는법, 리팩토링 방법 <- 리팩토링 해야할 곳을 찾을때 |
-| 4회차 (3/4)  | 4장 - 테스트 작성법 & 5장 - 카탈로그 사용법                  |
-| 5회차 (3/12) | 6.1장 ~ 6.6 장                                               |
-| 6회차 (3/19) | 6.7장 ~ 6.11 장                                              |
-| 7회차 (3/30) | 7장                                                          |
-| 8회차 (4/8)  | 8장                                                          |
-| 9회차 (4/16) | 9장                                                          |
+| 회차          | 내용                                                         |
+| ------------- | ------------------------------------------------------------ |
+| 1회차 (2/9)   | 1장 - 작은 프로그램 리팩토링 과정 <- 리팩토링이 뭔지 모르면 & 리팩토링을 하는 이유 |
+| 2회차 (2/17)  | 2장 - 리팩토링 원칙, 당위성 + 문제점 <- 리팩토링을 하는 이유 |
+| 3회차 (2/25)  | 3장 - 쓰레기 코드 찾는법, 리팩토링 방법 <- 리팩토링 해야할 곳을 찾을때 |
+| 4회차 (3/4)   | 4장 - 테스트 작성법 & 5장 - 카탈로그 사용법                  |
+| 5회차 (3/12)  | 6.1장 ~ 6.6 장                                               |
+| 6회차 (3/19)  | 6.7장 ~ 6.11 장                                              |
+| 7회차 (3/30)  | 7장                                                          |
+| 8회차 (4/8)   | 8장                                                          |
+| 9회차 (4/16)  | 9장                                                          |
+| 10회차 (4/22) | 10장                                                         |
+| 11회차 (4/29) | 11장                                                         |
+| 12회차 (5/7)  | 12장                                                         |
 
 ## Review
+
 - [1장. 리팩터링: 첫 번째 예시](https://github.com/sujinnaljin/Refactoring/blob/main/Review/Chapter1.md)
 - [2장. 리팩터링 원칙](https://github.com/sujinnaljin/Refactoring/blob/main/Review/Chapter2.md)
 - [3장. 코드에서 나는 악취](https://github.com/sujinnaljin/Refactoring/blob/main/Review/Chapter3.md)
@@ -39,10 +43,9 @@
 - [7장. 캡슐화](https://github.com/sujinnaljin/Refactoring/blob/main/Review/Chapter7.md)
 - [8장. 기능 이동](https://github.com/sujinnaljin/Refactoring/blob/main/Review/Chapter8.md)
 - [9장. 데이터 조직화](https://github.com/sujinnaljin/Refactoring/blob/main/Review/Chapter9.md)
-
-
-
-
+- [10장. 조건부 로직 간소화](https://github.com/sujinnaljin/Refactoring/blob/main/Review/Chapter10.md)
+- [11장. API 리팩터링](https://github.com/sujinnaljin/Refactoring/blob/main/Review/Chapter11.md)
+- [12장. 상속 다루기](https://github.com/sujinnaljin/Refactoring/blob/main/Review/Chapter12.md)
 
 
 
