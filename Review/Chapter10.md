@@ -63,7 +63,7 @@ function plumage(bird) {
   switch (bird.type) {
     case '유럽 제비':
       return "보통이다";
-    case '아프리카 제비'
+    case '아프리카 제비':
       return (bird.numberOfCoconuts > 2) ? "지쳤다" : "보통이다"; 
     default: 
       return "알 수 없다";
@@ -81,7 +81,7 @@ function createBird(bird) {
   switch (bird.type) {
     case '유럽 제비':
       return new EuropeanSwallow(bird);
-    case '아프리카 제비'
+    case '아프리카 제비':
       return new AfricanSwallow(bird);
     default: 
       return new Bird(bird);
