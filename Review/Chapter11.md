@@ -238,5 +238,5 @@ double getValueForPeriod(int periodNumber) {
     button.background = isSelected ? .yellow : .white
   }
   ```
-
+=> 애웅도~~ 아래코드~~ 좋게 생각한다고 함~~
   
